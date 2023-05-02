@@ -60,7 +60,8 @@ public class Get04 extends JsonPlaceHolderBaseURL {
                 assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
-                body("id", Matchers.hasSize(10));
+                body("id", Matchers.hasSize(10));//hasSize() 10 tane id olup plmadığına baktı
+
 
     }
 

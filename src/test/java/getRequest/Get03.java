@@ -53,6 +53,10 @@ public class Get03 extends JsonPlaceHolderBaseURL {//BİRDEN FAZLA BASEURL İLE 
         specification.pathParams("todosPath", "todos", "idPath", "2");
 
 //Step 2: Set the Expected data(ignore)
+    /*Expected dataları nasıl setleyebilirim?
+    -map
+    -arr/list
+     */
 
         //Step 3: Send Request---> Bir önceki derste requesti bu şekilde atmıştık
         //Response response=given().when().get();
