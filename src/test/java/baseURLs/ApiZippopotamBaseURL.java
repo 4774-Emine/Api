@@ -4,16 +4,34 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class GoRestCoBaseURL {
+public class ApiZippopotamBaseURL {
+    //http://api.zippopotam.us
     protected RequestSpecification specification;
 
-    // BASE URL ====>>> https://gorest.co.in/public/v2
     @Before
     public void setUpBaseURL(){
 
         specification = new RequestSpecBuilder().
-                setBaseUri("https://gorest.co.in/public/v2").
+                setBaseUri("http://api.zippopotam.us").
                 build();
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
