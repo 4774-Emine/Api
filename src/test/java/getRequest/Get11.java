@@ -54,7 +54,7 @@ public class Get11 extends ApiZippopotamBaseURL {
                 "postCodePath", "34010");
 
 
-        //Step 2: Set Expected Data
+        //Step 2: Set Expected Data ----TEST CASE,DOC. dan alıyoruz
         /*
          {
     "post code": "34010",
@@ -90,6 +90,8 @@ public class Get11 extends ApiZippopotamBaseURL {
         //Assertion with GSON
         Map<String, Object> actualDataMap = response.as(HashMap.class);
         System.out.println("Actual Data: " + actualDataMap);
+
+        //get("Key")
         assertEquals(zippoPotamPojos.getCountry(), actualDataMap.get("country"));
         assertEquals(zippoPotamPojos.getPostCode(), actualDataMap.get("post code"));
         assertEquals(zippoPotamPojos.getCountryAbbreviation(), actualDataMap.get("country abbreviation"));
