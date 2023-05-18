@@ -1,7 +1,16 @@
 package getRequest;
 
 import baseURLs.GoRestCoBaseURL;
+import io.restassured.response.Response;
 import org.junit.Test;
+import pojoDatas.GoRestCoApiPojo;
+import utilities.JsonToJava;
+
+import java.util.HashMap;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+
 public class Get12 extends GoRestCoBaseURL {
          /*
 
@@ -47,5 +56,41 @@ public class Get12 extends GoRestCoBaseURL {
                 "}";
         System.out.println("Expected Data: "+ expectedData);
 
+        GoRestCoApiPojo goRestCoApiPojo = JsonToJava.convertJsonToJavaObject(expectedData, GoRestCoApiPojo.class);
+        System.out.println("goRestCoApiPojo: " + goRestCoApiPojo);
+
+
+        HashMap<String,Object> expectedDataMap = JsonToJava.convertJsonToJavaObject(expectedData, HashMap.class);
+        System.out.println("expectedDataMap: " + expectedDataMap );
+
+
+
+        //Step 3: Send Request
+        //pathParams("usersPath","users",
+        //               "idPath","724790");
+        Response response = given().
+                spec(specification).
+                when().
+                get("/{usersPath}/{idPath}");
+
+        System.out.println("RESPONSE: ");
+        response.prettyPrint();
+
+
+        //Step 4: Assertion:
+
+        HashMap<String,Object> actualDataMap = JsonToJava.convertJsonToJavaObject(response.asString(),HashMap.class);
+        System.out.println("Actual Data: " + actualDataMap);
+
+
+        assertEquals(expectedDataMap.get("gender"),actualDataMap.get("gender"));
+        assertEquals(expectedDataMap.get("name"),actualDataMap.get("name"));
+        assertEquals(expectedDataMap.get("id"),actualDataMap.get("id"));
+        assertEquals(expectedDataMap.get("email"),actualDataMap.get("email"));
+        assertEquals(expectedDataMap.get("status"),actualDataMap.get("status"));
+
+
     }
+
 }
+
